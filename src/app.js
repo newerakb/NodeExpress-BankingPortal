@@ -13,11 +13,7 @@ const accountData = fs.readFileSync(path.join(__dirname, 'json', 'accounts.json'
 const accounts = JSON.parse(accountData);
 
 const userData = fs.readFileSync(path.join(__dirname, 'json', 'users.json'), 'utf8');
-const users = JSON.parse(accountData);
-
-const ejs = require('ejs');
-file = fs.readFileSync(path.join(process.cwd(), 'src/views/profile.ejs'), 'utf8');
-ejs.compile(file);
+const users = JSON.parse(userData);
 
 app.get('/', (req, res) => {
   res.render('index', { title: 'Account Summary', accounts: accounts });
